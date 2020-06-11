@@ -3,6 +3,24 @@ import {Container, Row, Dropdown, Col} from "react-bootstrap"
 import Gallery from "./Gallery"
 
 class Home extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      initialState: true,
+    }
+  }
+
+  componentDidMount() {
+    this.setState({displayGallery: true})
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.displayGallery === true) {
+  //     this.setState({ displayGallery: false})
+  //   };
+  // }
+
   render () {
     return (
       <Container fluid className="px-4">
@@ -32,10 +50,15 @@ class Home extends React.Component {
           </div>
           
         </Row>
-        <Gallery />
-        <Gallery />
-        <Gallery />
-        <Gallery />
+        
+        {this.state.initialState ? (
+          <div>
+            <Gallery imageSrc={"/assets/6.png"}/>
+          <Gallery title={"Trending"} imageSrc={"/assets/8.png"} />
+          <Gallery title={"Horror"} imageSrc={"/assets/7.png"} />
+          <Gallery />
+        </div>
+        ) : (<p style={{color: "white"}}>Nothing to be displayed</p>)}
         
       </Container>
 

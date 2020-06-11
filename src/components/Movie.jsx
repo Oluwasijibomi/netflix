@@ -4,7 +4,7 @@ import {Col, Image} from "react-bootstrap"
 function Movie(props) {
   return (
     <Col className="mb-2">
-      <Image className="img-fluid" src="assets/7.png" alt="movie picture" />
+      <Image className="img-fluid" src={props.imageSrc} alt={props.title} />
 
       
     </Col>
